@@ -72,10 +72,10 @@ document.addEventListener('click', function (e) {
     const _map = currentSearchResultsData[e.target.getAttribute('data-place-index')];
     if (!mapBoundingBoxes.hasOwnProperty(_map.place_id)) {
       mapBoundingBoxes[_map.place_id] = getBoundingBox(_map.geojson.coordinates[0]);
+      maps.push(_map);
+      render();
+      updateMapsList();
     }
-    maps.push(_map);
-    render();
-    updateMapsList();
   }
 
   // remove a place's map
